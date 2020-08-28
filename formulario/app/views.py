@@ -2,7 +2,9 @@ from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse 
 from .models import Person
 from .forms import PersonForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def home(request):
     dicio = {}
     dicio['Person'] = Person.objects.all()
